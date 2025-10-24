@@ -46,11 +46,9 @@ async def main():
             Ask probing questions and identify patterns."""
     )
 
-
-    termination = MaxMessageTermination(max_messages=6)
     team = RoundRobinGroupChat(
         participants=[researcher, analyst],
-        termination_condition=termination
+        termination_condition=MaxMessageTermination(max_messages=6)
     )
 
     # Run the conversation
